@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block titulo %}Ingresar{% endblock %}
+
+{% block boton_edit %}
+
+{% endblock %}
+
+{% block contenido %}
+
+  <div class="row p-5">
+    <div class='col-md-3'></div>
+    <div class="col-md-5">
+      <h1>Ingresar</h1>
+
+      <form method="POST">
+        {% csrf_token %}
+          <div class="my-3">
+            <label for="email" class="form-label"><h4>Email</h4></label>
+            <input type="text" class="form-control" id="email" name="email" value="{{request.session.login_email}}">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label"><h4>Contraseña</h4></label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary"><h4>Ingresar</h4></button>
+      </form>
+    </div>
+  <!-- </div> -->
+  <div class="row">
+    <div class='col-md-3'></div>
+    <div class='col-md-5 px-3'>
+      <a  href="/registro">Registrarse</a>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block libreria %}
+
+
+{% endblock %}

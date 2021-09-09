@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block titulo %}Registro{% endblock %}
+
+{% block boton_edit %}
+
+{% endblock %}
+
+{% block contenido %}
+
+  <div class="row p-5">
+    <div class='col-md-3'></div>
+    <div class="col-md-5">
+      <h1>Registrarse</h1>
+      <form action="/registro" method="POST">
+        {% csrf_token %}
+        <div class="my-3">
+          <label for="nombre" class="form-label"><h4>Nombre</label>
+          <input type="text" class="form-control" id="nombre" name="first_name" value="{{request.session.register_first_name}}">
+        </div>
+        <div class="mb-3">
+          <label for="apellido" class="form-label"><h4>Apellido</h4></label>
+          <input type="text" class="form-control" id="apellido" name="last_name" value="{{request.session.register_last_name}}">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label"><h4>Email</h4></label>
+          <input type="text" class="form-control" id="email" name="email" value="{{request.session.register_email}}">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label"><h4>Contraseña</h4></label>
+          <input type="password" class="form-control" id="password" name="password">
+        </div>
+        <div class="mb-3">
+          <label for="password_confirm" class="form-label"><h4>Confirmar Contraseña</h4></label>
+          <input type="password" class="form-control" id="password_confirm" name="password_confirm">
+        </div>
+        <!-- <input type="hidden" name="role" value="user"> -->
+        <button type="submit" class="btn btn-primary">Registrar</button>
+      </form>
+    </div>
+    <div class="row">
+      <div class='col-md-3'></div>
+      <div class='col-md-5 px-3'>
+        <a href="/login">Ingresar con usuario ya registrado</a>
+      </div>
+    </div>
+  
+{% endblock %}
+
+{% block libreria %}
+
+
+{% endblock %}
